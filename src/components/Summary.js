@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import ProductContext from '../components/context/ProductContext';
 
 const Summary = () => {
+    const productContext = useContext(ProductContext);
+    const { totalIncomes,totalIncomesCount, totalExpenses,totalExpensesCount } = productContext;
+  
     return (
-        <div className="mt-4 shadow-sm rounded-md p-4">
-            <h2 className="w-full text-center">
+        <div className="mt-2 shadow-lg bg-white rounded-lg p-4">
+            <h2 className="underline w-full text-center">
                 SUMMARY
             </h2>
             <table className="table-auto w-full">
@@ -15,11 +19,11 @@ const Summary = () => {
                 <tbody>
                     <tr className='bg-purple-200 bb-4' >
                         <td className="px-4">TOTAL</td>
-                        <td>850000</td>
+                        <td>{totalIncomes}</td>
                     </tr>
                     <tr className='bg-purple-200'>
                         <td className="px-4">ITEMS</td>
-                        <td>64</td>
+                        <td>{totalIncomesCount}</td>
                     </tr>
                 </tbody>
             </table>
@@ -30,13 +34,13 @@ const Summary = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr className='bg-purple-200 bb-4' >
                         <td className="px-4">TOTAL</td>
-                        <td>850000</td>
+                        <td>{totalExpenses}</td>
                     </tr>
-                    <tr>
+                    <tr className='bg-purple-200'>
                         <td className="px-4">ITEMS</td>
-                        <td>64</td>
+                        <td>{totalExpensesCount}</td>
                     </tr>
                 </tbody>
             </table>

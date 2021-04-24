@@ -9,8 +9,8 @@ import {
     UPDATE_PRODUCT,
     FILTER_PRODUCTS,
     CLEAR_FILTER,
-    GET_PRODUCT,
-    GET_PRODUCTS,
+    // GET_PRODUCT,
+    // GET_PRODUCTS,
     SET_CURRENT,
     CLEAR_CURRENT,
 } from "../types";
@@ -24,31 +24,33 @@ const ProductState = (props) => {
                 id: 1,
                 type: 'inc',
                 description: 'Capital',
-                amount:25000
+                amount:100
             },
             {
                 id: 2,
                 type: 'exp',
                 description: 'Bought books',
-                amount:2500
+                amount:100
             },
             {
                 id: 3,
                 type: 'exp',
                 description: 'Bought chocolate',
-                amount:1400
+                amount:200
             },
             {
                 id: 4,
                 type: 'inc',
                 description: 'sold books',
-                amount:3000
+                amount:100
             }
         ],
         product: {},
         current:null,
 		error: null,
-		filtered: null,
+        filtered: null,
+        totalIncomes:0,
+        totalExpenses:0,
     };
 
     const [state, dispatch] = useReducer(ProductReducer, initialState)
@@ -111,6 +113,7 @@ const ProductState = (props) => {
             value={{
                 products: state.products,
                 current: state.current,
+                totalIncome: state.totalIncome,
                 // getProduct: state.product,
                 filtered: state.filtered,
                 filterProducts,
@@ -120,6 +123,24 @@ const ProductState = (props) => {
                 clearCurrent,
                 updateProduct,
                 clearFilter,
+                totalIncomes : state.products
+                                .filter(item => item.type === 'inc')
+                                .map(item => item.amount)
+                                .reduce((prev, next) => parseInt(prev) + parseInt(next)),
+                totalExpenses : state.products
+                                .filter(item => item.type === 'exp')
+                                .map(item => item.amount)
+                                .reduce((prev, next) => parseInt(prev) + parseInt(next)),
+                totalExpensesCount : state.products
+                    .filter(item => {
+                       return( item.type === 'exp')
+                    }
+                    ).length,
+                totalIncomesCount : state.products
+                    .filter(item => {
+                       return( item.type === 'inc')
+                    }
+                    ).length
                 // deleteProduct,
             }}
             >

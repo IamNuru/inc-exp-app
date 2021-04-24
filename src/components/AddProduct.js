@@ -48,7 +48,6 @@ const AddProduct = () => {
         if (current === null) {
                 addProduct(product)
             } else {
-            console.log(product);
                 updateProduct(product)
             }
             Toast.fire({
@@ -69,7 +68,7 @@ const AddProduct = () => {
 
     }
     return (
-        <div className="block shadow-md p-4">
+        <div className="block shadow-md bg-pink-200 p-4">
             <form onSubmit={onSubmit} className="block">
                 <div className="flex w-1/2 m-auto justify-between align-middle">
                 <label>
@@ -129,7 +128,7 @@ const AddProduct = () => {
             {
                 current && <div>
                     <button
-                        className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 
+                        className="mt-2 mb-2 bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 
                         px-4 w-full"
                         onClick={clearForm}
                     >

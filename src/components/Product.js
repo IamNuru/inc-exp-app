@@ -43,7 +43,7 @@ const Product = (props) => {
                 }
             </td>
             <td>{description}</td>
-            <td className="text-center">{amount}</td>
+            <td className="text-center br-1">{amount}</td>
             <td className="text-center">
                 <ul className="flex ml-auto">
                     <li className="px-1 text-purple-700 mouse-hover" onClick={() => setCurrent(props.product)}><i className="fa fa-edit"></i></li>

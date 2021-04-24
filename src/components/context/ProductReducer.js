@@ -11,7 +11,7 @@ import {
 	CLEAR_CURRENT
 } from '../types';
 
-export default (state, action) => {
+const ProductReducer =  (state, action) => {
 	switch (action.type) {
 		case GET_PRODUCTS:
 			return {
@@ -40,7 +40,7 @@ export default (state, action) => {
 		case GET_PRODUCT:
 			return {
 				...state,
-				PRODUCT: action.payload,
+				product: action.payload,
 			};
 		case SET_CURRENT:
 			return {
@@ -76,3 +76,4 @@ export default (state, action) => {
 			return state;
 	}
 };
+export default ProductReducer;

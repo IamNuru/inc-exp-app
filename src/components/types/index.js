@@ -11,3 +11,4 @@ export const SET_ALERT = 'SET ALERT';
 export const REMOVE_ALERT = 'CLEAR ALERT';
 export const SET_CURRENT = 'SET CURRENT';
 export const CLEAR_CURRENT = 'CLEAR CURRENT';
+export const TOTAL_INCOME = 'TOTAL_INCOME'
